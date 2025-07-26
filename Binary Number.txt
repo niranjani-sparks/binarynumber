@@ -1,0 +1,33 @@
+package VSB_pat;
+import java.util.Scanner;
+public class binarynum {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt(); // length of string
+	    int k = scan.nextInt(); // number of 0s allowed to flip
+	    scan.nextLine(); // consume leftover newline
+	    String s = scan.nextLine();
+	    int max = 0;
+	    int bin = 0;
+	    for (int i = 0; i < n; i++) {
+	            int zeroCount = 0;
+	            for (int j = i; j < n; j++) {
+	                if (s.charAt(j) == '0') {
+	                    zeroCount++;
+	                }
+	                if (zeroCount > k) {
+	                    break;
+	                }
+	                int len = j - i + 1;
+	                if (len > max) {
+	                    max = len;
+	                    bin = 1;
+	                } else if (len == max) {
+	                    bin++;
+	                }
+	            }
+	        }
+
+	        System.out.println(bin);
+	    }
+	}
